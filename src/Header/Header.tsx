@@ -6,7 +6,7 @@ import {
 
 function Header() {
     return (
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router basename="/">
             <div className="header-row">
                 <div className="header-buttons">
                     <Link to="/education">

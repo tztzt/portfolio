@@ -11,13 +11,12 @@ import Projects from "./Projects/Projects"
 import Work from "./Work/Work"
 
 export default function App() {
-  let location = "/portfolio";
 
   return (
     <div className="App">
       <Header />
       <div className="App-body">
-        <Router basename={location}>
+        <Router basename="/">
           <Switch>
             <Route exact path="/">
               <About />
