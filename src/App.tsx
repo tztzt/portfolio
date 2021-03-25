@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './Header/Header'
 import {
-  HashRouter as Router,
+  HashRouter,
   Switch,
   Route,
 } from "react-router-dom";
@@ -12,28 +12,26 @@ import Work from './Work/Work'
 
 export default function App() {
   
-  let location = "/portfolio";
-  
   return (
     <div className="App">
       <Header />
       <div className="App-body">
-        <Router>
+        <HashRouter basename='/'>
           <Switch>
-            <Route exact path={location}>
+            <Route exact path='/'>
               <About />
             </Route>
-            <Route path={`${location}/education`}>
+            <Route path='education'>
               <Education />
             </Route>
-            <Route path={`${location}/projects`}>
+            <Route path='projects'>
               <Projects />
             </Route>
-            <Route path={`${location}/work`}>
+            <Route path='work'>
               <Work />
             </Route>
           </Switch >
-        </Router >
+        </HashRouter >
       </div>
     </div >
   );

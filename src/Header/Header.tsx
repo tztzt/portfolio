@@ -1,40 +1,38 @@
 import './Header.css'
 import {
-    BrowserRouter as Router,
+    HashRouter,
     Link
 } from 'react-router-dom'
 
 function Header() {
 
-  let location = "/portfolio";
-
     return (
-        <Router>
+        <HashRouter>
             <div className="header-row">
                 <div className="header-buttons">
-                    <Link to={`${location}/education`}>
+                    <Link to='education'>
                         <button className="buttons">
                             Education and Projects
                     </button>
                     </Link>
-                    <Link to={`${location}/work`}>
+                    <Link to='work'>
                         <button className="buttons">
                             Work Experience
                     </button>
                     </Link>
-                    <Link to={`${location}/projects`}>
+                    <Link to='projects'>
                         <button className="buttons">
                             Personal Projects
                     </button>
                     </Link>
-                    <Link to={`${location}`}>
+                    <Link to='/'>
                         <button className="buttons">
                             About Me
                     </button>
                     </Link>
                 </div>
             </div>
-        </Router>
+        </HashRouter>
     );
 }
 
