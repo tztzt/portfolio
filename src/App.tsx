@@ -11,7 +11,7 @@ import Projects from "./Projects/Projects"
 import Work from "./Work/Work"
 
 export default function App() {
-  let location = process.env.PUBLIC_URL;
+  let location = "/portfolio";
 
   return (
     <div className="App">
