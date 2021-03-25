@@ -1,14 +1,14 @@
-import './App.css';
-import Header from './Header/Header'
+import "./App.css";
+import Header from "./Header/Header"
 import {
   HashRouter,
   Switch,
   Route,
 } from "react-router-dom";
-import About from './About/About'
-import Education from './Education/Education'
-import Projects from './Projects/Projects'
-import Work from './Work/Work'
+import About from "./About/About"
+import Education from "./Education/Education"
+import Projects from "./Projects/Projects"
+import Work from "./Work/Work"
 
 export default function App() {
   
@@ -16,18 +16,18 @@ export default function App() {
     <div className="App">
       <Header />
       <div className="App-body">
-        <HashRouter basename='/'>
+        <HashRouter basename="/">
           <Switch>
-            <Route exact path='/'>
+            <Route exact path="/">
               <About />
             </Route>
-            <Route path='education'>
+            <Route path="/education">
               <Education />
             </Route>
-            <Route path='projects'>
+            <Route path="/projects">
               <Projects />
             </Route>
-            <Route path='work'>
+            <Route path="/work">
               <Work />
             </Route>
           </Switch >

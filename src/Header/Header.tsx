@@ -1,8 +1,8 @@
-import './Header.css'
+import "./Header.css"
 import {
     HashRouter,
     Link
-} from 'react-router-dom'
+} from "react-router-dom"
 
 function Header() {
 
@@ -10,22 +10,22 @@ function Header() {
         <HashRouter>
             <div className="header-row">
                 <div className="header-buttons">
-                    <Link to='education'>
+                    <Link to="/education">
                         <button className="buttons">
                             Education and Projects
                     </button>
                     </Link>
-                    <Link to='work'>
+                    <Link to="/work">
                         <button className="buttons">
                             Work Experience
                     </button>
                     </Link>
-                    <Link to='projects'>
+                    <Link to="/projects">
                         <button className="buttons">
                             Personal Projects
                     </button>
                     </Link>
-                    <Link to='/'>
+                    <Link to="/">
                         <button className="buttons">
                             About Me
                     </button>
