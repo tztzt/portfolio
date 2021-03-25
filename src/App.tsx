@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./Header/Header"
 import {
-  HashRouter,
+  BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
@@ -11,12 +11,13 @@ import Projects from "./Projects/Projects"
 import Work from "./Work/Work"
 
 export default function App() {
-  
+  let location = process.env.PUBLIC_URL;
+
   return (
     <div className="App">
       <Header />
       <div className="App-body">
-        <HashRouter basename="/">
+        <Router basename={location}>
           <Switch>
             <Route exact path="/">
               <About />
@@ -31,7 +32,7 @@ export default function App() {
               <Work />
             </Route>
           </Switch >
-        </HashRouter >
+        </Router >
       </div>
     </div >
   );

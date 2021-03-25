@@ -1,13 +1,12 @@
 import "./Header.css"
 import {
-    HashRouter,
+    BrowserRouter as Router,
     Link
 } from "react-router-dom"
 
 function Header() {
-
     return (
-        <HashRouter>
+        <Router basename={process.env.PUBLIC_URL}>
             <div className="header-row">
                 <div className="header-buttons">
                     <Link to="/education">
@@ -32,7 +31,7 @@ function Header() {
                     </Link>
                 </div>
             </div>
-        </HashRouter>
+        </Router>
     );
 }
 
