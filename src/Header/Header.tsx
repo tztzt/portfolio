@@ -1,6 +1,6 @@
 import "./Header.css"
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Link
 } from "react-router-dom"
 
