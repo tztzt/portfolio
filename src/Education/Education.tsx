@@ -2,7 +2,7 @@ import './Education.css'
 
 function Education() {
     return (
-        <div>
+        <div className="content">
             Education Contents
         </div>
     );
