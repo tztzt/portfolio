@@ -5,7 +5,7 @@ function About() {
         <div>
             <div className="row">
                 <div className="display-pic">
-                    <img className="picture" src={process.env.PUBLIC_URL + '/photo1.jpg'} alt="image" />
+                    <img className="picture" src={process.env.PUBLIC_URL + '/photo1.jpg'} alt="" />
                 </div>
                 <div className="about-content">
                     Name: Zhi Thon <br />
@@ -14,7 +14,8 @@ function About() {
             </div>
             </div>
             <div className="about-mumbo">
-                Unfortunately, this is an ongoing mini project by me and still looks simple and unpolished, for now.
+                Unfortunately, this is an ongoing mini project by me and still looks simple and unpolished, for now. <br />
+                Written in React Typescript.
             </div>
         </div>
     );
