@@ -1,4 +1,6 @@
 import './About.css'
+// @ts-ignore
+import { SocialIcon } from 'react-social-icons';
 
 function About() {
     return (
@@ -17,6 +19,9 @@ function About() {
                         Young, aspiring developer hoping to better our every day lives one line of code at a time. <br />
                         I am all about the efficiency and optimisation of code and solutions, problem solving is my drug. <br />
                         When I am not hard at work, you can find me chilling on video games, pc games or board games with friends, gamer of all sorts!
+                    </div>
+                    <div className="social-media-links">
+                        <SocialIcon url="https://linkedin.com/in/teh-zhi-thon/" />
                     </div>
                 </div>
             </div>

@@ -18,7 +18,7 @@
 }
 
 .about-content {
-    width: 60%;
+    width: 50%;
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -30,7 +30,7 @@
 
 .about-me {
     padding: 10px;
-    font-size: 20px;
+    font-size: 16px;
     text-align: left;
 }
 
@@ -38,4 +38,9 @@
     color: white;
     height: 60px;
     font-size: 15px;
+}
+
+.social-media-links {
+    text-align: left;
+    padding: 20px 0px;
 }
