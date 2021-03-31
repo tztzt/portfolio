@@ -3,12 +3,14 @@ import Item from './Item/Item'
 
 function Education() {
 
-    const nus_modules = ["CS1010 - Programming Methodology",
+    const nus_modules = [
+        "CS1010 - Programming Methodology",
         "CS1231 - Discrete Structures", 
         "CS2040C - Data Structures and Algorithms", 
         "CS2113T - Software Engineering and Object-Oriented Programming",
         "CS3230 - Design and Analysis of Algorithms",
         "CS4231 - Parallel and Distributed Algorithms",
+        "CS3210 - Parallel Computing",
         "CS2102 - Database Systems",
         "CS3223 - Database Systems Implementations", 
         "CS2107 - Introduction to Information Security",

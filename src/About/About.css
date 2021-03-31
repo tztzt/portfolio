@@ -21,7 +21,16 @@
     width: 60%;
     margin-top: auto;
     margin-bottom: auto;
+}
+
+.about-info {
     font-size: 25px;
+    text-align: left;
+}
+
+.about-me {
+    padding: 10px;
+    font-size: 20px;
     text-align: left;
 }
 
