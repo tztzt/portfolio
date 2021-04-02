@@ -4,8 +4,7 @@ import { SocialIcon } from 'react-social-icons';
 
 function About() {
     return (
-        <div>
-            <div className="row">
+        <div className="my-row">
                 <div className="display-pic">
                     <img className="picture" src={process.env.PUBLIC_URL + '/photo1.jpg'} alt="" />
                 </div>
@@ -24,11 +23,6 @@ function About() {
                         <SocialIcon url="https://linkedin.com/in/teh-zhi-thon/" />
                     </div>
                 </div>
-            </div>
-            <div className="about-mumbo">
-                Unfortunately, this is an ongoing mini project by me and still looks simple and unpolished, for now. <br />
-                Written in React Typescript.
-            </div>
         </div>
     );
 }

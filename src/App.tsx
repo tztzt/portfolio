@@ -33,6 +33,9 @@ export default function App() {
           </Switch >
         </Router >
       </div>
+      <footer className="footer-cc">
+        This website is an ongoing mini project of mine, you may view the github repo for this project at <a href="https://github.com/tztzt/portfolio"> my github page</a>.
+            </footer>
     </div >
   );
 }

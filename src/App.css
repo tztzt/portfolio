@@ -1,6 +1,4 @@
 .App {
-    background-color: #282c34;
-    height: 100vh;
     text-align: center;
     font-family: 'Roboto Slab';
 }
@@ -10,4 +8,11 @@
     align-items: center;
     justify-content: center;
     padding: 2px;
+}
+
+.footer-cc {
+    margin-top: 440px;
+    height: 30px;
+    color: white;
+    padding-bottom: 40px;
 }
