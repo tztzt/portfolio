@@ -1,27 +1,14 @@
 import './Education.css'
-import Item from './Item/Item'
+import Item from './Item/Modules'
 
 function Education() {
-
-    // const nus_modules = [
-    //     "CS1010 - Programming Methodology",
-    //     "CS1231 - Discrete Structures", 
-    //     "CS2040C - Data Structures and Algorithms", 
-    //     "CS2113T - Software Engineering and Object-Oriented Programming",
-    //     "CS3230 - Design and Analysis of Algorithms",
-    //     "CS4231 - Parallel and Distributed Algorithms",
-    //     "CS3210 - Parallel Computing",
-    //     "CS2102 - Database Systems",
-    //     "CS3223 - Database Systems Implementations", 
-    //     "CS2107 - Introduction to Information Security",
-    //     "CS3243 - Introduction to Artificial Intelligence",
-    //     "CS4225 - Big Data Systems for Data Science"];
 
     const nus_modules = new Map(
         [
             ["Algorithms and Data Structures",
                 [
                     "CS1231 - Discrete Structures",
+                    "CS2040C - Data Structures and Algorithms",
                     "CS3230 - Design and Analysis of Algorithms (Exchange Programme)",
                     "CS4231 - Parallel and Distributed Algorithms",
                 ],
@@ -29,7 +16,6 @@ function Education() {
             ["Coding and Programming Principles",
                 [
                     "CS1010 - Programming Methodology",
-                    "CS2040C - Data Structures and Algorithms",
                     "CS2113T - Software Engineering and Object-Oriented Programming",
                     "CS3210 - Parallel Computing (Exchange)",
                 ]
@@ -44,8 +30,8 @@ function Education() {
                 [
                     "CS2107 - Introduction to Information Security",
                     "CS3243 - Introduction to Artificial Intelligence (Exchange)",
-                    "CS4225 - Big Data Systems for Data Science",
-                    "CG4002 - Computer Engineering Capstone Project"
+                    "CG4002 - Computer Engineering Capstone Project",
+                    "CS4225 - Big Data Systems for Data Science"
                 ]
             ]
         ]

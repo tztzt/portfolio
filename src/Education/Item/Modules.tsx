@@ -1,4 +1,4 @@
-import './Item.scss'
+import './Modules.scss'
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 
@@ -9,27 +9,31 @@ interface Props {
     modules: any;
 }
 
-function Item(props: Props) {
+function Modules(props: Props) {
 
-    function Info() {
+    function ModulesInfo() {
         const data = props.modules
 
         if (props.nus === true) {
             let myKeys: string[] = []
             data.forEach((value: string[], key: string) => myKeys.push(key));
-            console.log(data)
-            console.log(myKeys)
+            let last_item_index = myKeys.length
+            let i = 0;
             return <div>
-                {myKeys.map((item: string) => {
-                    const module_list = data.get(item)
-                    return <div>
-                        {item}
-                        {module_list.map(function (s: string) {
-                            return <li>{s}</li>;
-                        })}
-                        <br />
-                    </div>
-                })
+                {
+                    myKeys.map((item: string) => {
+                        i++
+                        const module_list = data.get(item)
+                        return <div>
+                            <div className="title-item"> {item} </div>
+                            {module_list.map(function (s: string) {
+                                return <li>{s}</li>;
+                            })}
+                            {
+                                i != last_item_index ? <br /> : <div />
+                            }
+                        </div>
+                    })
                 }
             </div>
         } else {
@@ -58,7 +62,7 @@ function Item(props: Props) {
                         </ Accordion.Toggle>
                         <Accordion.Collapse className="modules-body" eventKey="0">
                             <Card.Body >
-                                <Info />
+                                <ModulesInfo />
                             </Card.Body>
                         </ Accordion.Collapse>
                     </Card>
@@ -68,4 +72,4 @@ function Item(props: Props) {
     );
 }
 
-export default Item;
+export default Modules;
