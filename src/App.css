@@ -1,6 +1,7 @@
 .App {
     text-align: center;
     font-family: 'Roboto Slab';
+    margin-bottom: 60px;
 }
 
 .App-body {
@@ -10,9 +11,13 @@
     padding: 2px;
 }
 
-.footer-cc {
-    margin-top: 440px;
-    height: 30px;
+footer {
+    background-color: black;
+    outline: 2px solid white;
+    width: 100%;
     color: white;
-    padding-bottom: 40px;
+    position: fixed;
+    bottom: 0;
+    padding: 12px;
+    text-align: center;
 }
