@@ -30,7 +30,7 @@ function Modules(props: Props) {
                                 return <li>{s}</li>;
                             })}
                             {
-                                i != last_item_index ? <br /> : <div />
+                                i !== last_item_index ? <br /> : <div />
                             }
                         </div>
                     })
@@ -46,7 +46,6 @@ function Modules(props: Props) {
     }
 
     return (
-
         <div className="item-row">
             <div className="item-card">
                 <div className="school">
@@ -55,18 +54,33 @@ function Modules(props: Props) {
                 <div className="major">
                     {props.major}
                 </div>
-                <Accordion >
-                    <Card className="accordion-header">
-                        <Accordion.Toggle as={Card.Header} eventKey="0" className="card-bottom" >
-                            Modules/Subjects Taken
-                        </ Accordion.Toggle>
-                        <Accordion.Collapse className="modules-body" eventKey="0">
-                            <Card.Body >
-                                <ModulesInfo />
-                            </Card.Body>
-                        </ Accordion.Collapse>
-                    </Card>
-                </Accordion>
+                {
+                    props.nus === true ?
+                        <Accordion defaultActiveKey="0">
+                            <Card className="accordion-header">
+                                <Accordion.Toggle as={Card.Header} eventKey="0" className="card-bottom" >
+                                    Modules/Subjects Taken
+                            </ Accordion.Toggle>
+                                <Accordion.Collapse className="modules-body" eventKey="0">
+                                    <Card.Body >
+                                        <ModulesInfo />
+                                    </Card.Body>
+                                </ Accordion.Collapse>
+                            </Card>
+                        </Accordion>
+                        : <Accordion>
+                            <Card className="accordion-header">
+                                <Accordion.Toggle as={Card.Header} eventKey="0" className="card-bottom" >
+                                    Modules/Subjects Taken
+                            </ Accordion.Toggle>
+                                <Accordion.Collapse className="modules-body" eventKey="0">
+                                    <Card.Body >
+                                        <ModulesInfo />
+                                    </Card.Body>
+                                </ Accordion.Collapse>
+                            </Card>
+                        </Accordion>
+                }
             </div>
         </div>
     );

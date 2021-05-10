@@ -1,4 +1,4 @@
-import './Work.css'
+import './Work.scss'
 import WorkInfo from './WorkInfo/WorkInfo'
 
 function Work() {
@@ -52,6 +52,7 @@ function Work() {
             <WorkInfo company="Autodesk Asia Pte Ltd (July 2020 - Dec 2020)"
                 title="Compulsory 6-month Internship - Software Development and Testing Intern (Vault)"
                 job_desc={a_job}
+                first={true}
             />
             <WorkInfo company="Deskera Singapore Pte Ltd (May 2019 - Aug 2019)"
                 title="Summer Internship - Product Management Intern"

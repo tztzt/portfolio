@@ -1,9 +1,10 @@
-import './Projects.css'
+import './Projects.scss'
+import { TableView } from './TableView/TableView'
 
 function Projects() {
     return (
         <div className="content">
-            Projects Contents
+            <TableView />
         </div>
     );
 }

@@ -3,6 +3,7 @@ $text-color: #e6e6e6;
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 .item-row {
+    margin-bottom: 40px;
     color: $text-color;
     align-content: center;
 }
@@ -13,7 +14,6 @@ $text-color: #e6e6e6;
     margin-right: auto;
     margin-top: auto;
     margin-bottom: auto; 
-    padding: 30px 0px;
     height: 80%;
 }
 

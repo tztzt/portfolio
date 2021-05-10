@@ -1,0 +1,19 @@
+.sortable-item {
+    padding: 0px 8px;
+    font-size: 10.5px;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.form-check-label {
+    width: 140px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.icon-style {
+    vertical-align: baseline;
+    outline:0 !important;
+}

@@ -1,4 +1,4 @@
-import "./Header.css"
+import "./Header.scss"
 import {
     HashRouter as Router,
     Link
@@ -21,7 +21,7 @@ function Header() {
                     </Link>
                     <Link to="/projects">
                         <button className="buttons">
-                            Personal Projects
+                            Projects/Works
                     </button>
                     </Link>
                     <Link to="/">

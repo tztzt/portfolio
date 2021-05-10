@@ -1,4 +1,4 @@
-import './About.css'
+import './About.scss'
 // @ts-ignore
 import { SocialIcon } from 'react-social-icons';
 

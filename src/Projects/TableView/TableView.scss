@@ -1,0 +1,43 @@
+.dropdown-menu-right[aria-labelledby = dropdown-menu-align-right] {
+  background-color: #bdbdbd;
+  width: 200px; //This, by the way, is not working for some reason.
+}
+
+.table-style {
+  margin: 0px 100px;
+  text-align: left;
+}
+
+.text-container {
+  width: 70%;
+}
+
+.table-row {
+  width: 100%;
+  display:flex;
+  padding: 10px 0px;
+}
+
+.table-setting-btn {
+  text-align: right;
+  width: 30%;
+}
+
+table {
+    width: 100%;
+    font-weight: normal;
+    border-spacing: 0;
+    border: 1px solid white;
+    font-size: 11px;
+    th, td {
+        margin: 0;
+        padding: 0.5rem;
+        border-bottom: 1px solid white;
+        border-right: 1px solid white;
+  
+        :last-child {
+          border-right: 0;
+        }
+      }
+}
+

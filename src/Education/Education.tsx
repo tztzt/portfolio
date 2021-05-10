@@ -1,4 +1,4 @@
-import './Education.css'
+import './Education.scss'
 import Item from './Item/Modules'
 
 function Education() {
@@ -43,7 +43,7 @@ function Education() {
         "H1 Economics"]
 
     return (
-        <div>
+        <div className="content">
             <Item school="National University of Singapore (Aug 2017 - May 2021)" major="Bachelor of Engineering (Computer Engineering)" nus={true} modules={nus_modules} />
             <Item school="Serangoon Junior College (2013 - 2014)" major="Science Stream (3H2s)" nus={false} modules={jc_modules} />
         </div>

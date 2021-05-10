@@ -6,6 +6,7 @@ interface Props {
     company: string,
     title: string,
     job_desc: any,
+    first?: boolean
 }
 
 function WorkInfo(props: Props) {
@@ -21,12 +22,12 @@ function WorkInfo(props: Props) {
                     i++
                     const module_list = props.job_desc.get(item)
                     return <div>
-                        <div className="title-item"> {item} </div>  
+                        <div className="title-item"> {item} </div>
                         {module_list.map(function (s: string) {
                             return <li>{s}</li>;
                         })}
                         {
-                            i != last_item_index ? <br /> : <div />
+                            i !== last_item_index ? <br /> : <div />
                         }
                     </div>
                 })
@@ -43,21 +44,38 @@ function WorkInfo(props: Props) {
                 <div className="major">
                     {props.title}
                 </div>
-                <Accordion >
-                    <Card className="accordion-header">
-                        <Accordion.Toggle as={Card.Header} eventKey="0" className="card-bottom" >
-                            Job Responsibilities and Work Completed
+                {
+                    props.first === true ?
+                        <Accordion defaultActiveKey="0">
+                            <Card className="accordion-header">
+                                <Accordion.Toggle as={Card.Header} eventKey="0" className="card-bottom" >
+                                    Job Responsibilities and Work Completed
                         </ Accordion.Toggle>
-                        <Accordion.Collapse className="modules-body" eventKey="0">
-                            <Card.Body >
-                                <DetailedInfo />
-                            </Card.Body>
-                        </ Accordion.Collapse>
-                    </Card>
-                </Accordion>
+                                <Accordion.Collapse className="modules-body" eventKey="0">
+                                    <Card.Body >
+                                        <DetailedInfo />
+                                    </Card.Body>
+                                </ Accordion.Collapse>
+                            </Card>
+                        </Accordion>
+                        : <Accordion>
+                            <Card className="accordion-header">
+                                <Accordion.Toggle as={Card.Header} eventKey="0" className="card-bottom" >
+                                    Job Responsibilities and Work Completed
+                    </ Accordion.Toggle>
+                                <Accordion.Collapse className="modules-body" eventKey="0">
+                                    <Card.Body >
+                                        <DetailedInfo />
+                                    </Card.Body>
+                                </ Accordion.Collapse>
+                            </Card>
+                        </Accordion>
+                }
             </div>
         </div>
     );
 }
 
 export default WorkInfo;
+
+WorkInfo.defaultProps = { first: false }
