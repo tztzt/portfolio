@@ -21,11 +21,12 @@ import {
 import { SortableItem } from './SortableItem';
 
 interface Props {
-    headers: string[];
+    headers: any[];
 }
 
 export default function SortableGroup(props: Props) {
-    const [items, setItems] = useState(props.headers);
+
+    const [columns, setColumns] = useState(props.headers);
     const sensors = useSensors(
         useSensor(PointerSensor),
         useSensor(KeyboardSensor, {
@@ -41,10 +42,10 @@ export default function SortableGroup(props: Props) {
             onDragEnd={handleDragEnd}
         >
             <SortableContext
-                items={items}
+                items={columns}
                 strategy={verticalListSortingStrategy}
             >
-                {items.map(id => <SortableItem key={id} id={id} />)}
+                {columns.map(column => <SortableItem key={column.id} column={column} />)}
             </SortableContext>
         </DndContext>
     );
@@ -53,11 +54,17 @@ export default function SortableGroup(props: Props) {
         const { active, over } = event;
 
         if (active.id !== over.id) {
-            setItems((items) => {
-                const oldIndex = items.indexOf(active.id);
-                const newIndex = items.indexOf(over.id);
+            setColumns((columns) => {
+                let oldItem = columns.filter(col => {
+                    return col.id === active.id
+                  })
 
-                return arrayMove(items, oldIndex, newIndex);
+                const oldIndex = columns.indexOf(oldItem[0]);
+                let newItem = columns.filter(col => {
+                    return col.id === over.id
+                  })
+                const newIndex = columns.indexOf(newItem[0]);
+                return arrayMove(columns, oldIndex, newIndex);
             });
         }
     }

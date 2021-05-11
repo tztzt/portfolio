@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form'
 import { BsFillGridFill } from "react-icons/bs";
 
 interface Props {
-  id: string
+  column: any
 }
 
 export function SortableItem(props: Props) {
@@ -15,7 +15,7 @@ export function SortableItem(props: Props) {
     setNodeRef,
     transform,
     transition,
-  } = useSortable({ id: props.id });
+  } = useSortable({ id: props.column.id });
 
   const style: any = {
     transform: CSS.Transform.toString(transform),
@@ -31,8 +31,9 @@ export function SortableItem(props: Props) {
         <Form.Check
           inline
           type={type}
-          label={props.id}
-          id={`${props.id}-${type}`}
+          label={props.column.Header}
+          id={`${props.column.id}-${type}`}
+          {...props.column.getToggleHiddenProps()}
         />
         <BsFillGridFill className="icon-style" {...listeners} {...attributes} />
       </Form>
