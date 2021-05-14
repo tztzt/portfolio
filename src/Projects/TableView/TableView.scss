@@ -16,7 +16,7 @@
   font-size:15px;
 }
 
-.table-row {
+.title-row {
   width: 100%;
   display:flex;
   padding: 10px 0px;
@@ -27,12 +27,27 @@
   margin-bottom: 4px;
 }
 
+::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #5c5c5c;        /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: white;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #5c5c5c;  /* creates padding around scroll thumb */
+}
+
 table {
-    width: 100%;
+    width: 100%;  
     font-weight: normal;
     border-spacing: 0;
     border: 1px solid white;
     font-size: 14px;
+
     th, td {
         margin: 0;
         padding: 0.5rem;

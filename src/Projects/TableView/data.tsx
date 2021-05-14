@@ -1,5 +1,5 @@
 
-const student_alice = new Map([
+const student_steve = new Map([
     ["Principles of Economics", "B+"],
     ["Microeconomic Analysis I", "A"],
     ["Macroeconomic Analysis I", "A-"],
@@ -8,7 +8,7 @@ const student_alice = new Map([
     ["Programming Methodology", "B"]
 ])
 
-const student_ben = new Map([
+const student_peter = new Map([
     ["Principles of Economics", "A+"],
     ["Microeconomic Analysis I", "A"],
     ["Programming Methodology", "A-"],
@@ -38,17 +38,17 @@ const student_daniel = new Map([
 const students = new Map(
     [
         [
-            student_alice, "Alice Johnson"
+            student_steve, "Steve Rogers"
         ],
         [
-            student_ben, "Ben Wattson"
+            student_peter, "Peter Parker"
         ],
-        // [
-        //     student_carol, "Carol Summers"
-        // ],
-        // [
-        //     student_daniel, "Daniel Anderson"
-        // ],
+        [
+            student_carol, "Carol Denvers"
+        ],
+        [
+            student_daniel, "Bruce Banner"
+        ],
     ]
 )
 

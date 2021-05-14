@@ -28,13 +28,7 @@ export function SortableItem(props: Props) {
   return (
     <div className="sortable-item" ref={setNodeRef} style={style} >
       <Form>
-        <Form.Check
-          inline
-          type={type}
-          label={props.column.Header}
-          id={`${props.column.id}-${type}`}
-          {...props.column.getToggleHiddenProps()}
-        />
+        <Form.Check inline type={type} label={props.column.Header} id={`${props.column.id}-${type}`} {...props.column.getToggleHiddenProps()}/>
         <BsFillGridFill className="icon-style" {...listeners} {...attributes} />
       </Form>
     </div>

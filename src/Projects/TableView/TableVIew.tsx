@@ -1,6 +1,7 @@
 import './TableView.scss'
 import React from 'react'
 import { useTable } from 'react-table'
+
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import { students as STUDENTS } from './data'
 import SortableGroup from './SortableGroup/SortableGroup'
@@ -9,6 +10,7 @@ import { FiSettings } from 'react-icons/fi'
 export interface Column {
     Header: string,
     accessor: string,
+    show: boolean
 }
 
 interface Student {
@@ -29,7 +31,7 @@ const IndeterminateCheckbox = React.forwardRef(
     }
 )
 
-function Table({ columns, data, sortable_columns }: { columns: any, data: any, sortable_columns: any }) {
+function Table({ columns, data }: { columns: any, data: any }) {
     const {
         getTableProps,
         getTableBodyProps,
@@ -41,46 +43,68 @@ function Table({ columns, data, sortable_columns }: { columns: any, data: any, s
     } = useTable({
         columns,
         data,
+        initialState: {
+            // hiddenColumns: columns.filter((col: any) => { col.show === false }).map(    
+            //     (col: { Header: string, accessor: string, show: boolean }) => col.accessor)
+        },
     })
 
     return (
         <div>
             <div className="table-setting-btn">
                 <DropdownButton
-                    className="ddown z-depth-5"
+                    className="ddown"
                     size="sm"
                     menuAlign="right"
                     variant="secondary"
                     title={<FiSettings />}
-                    id="dropdown-menu-align-right"
-                >
+                    id="dropdown-menu-align-right">
                     <SortableGroup headers={allColumns} />
                 </DropdownButton>
             </div>
-
-            <table {...getTableProps()}>
-                <thead>
-                    {headerGroups.map(headerGroup => (
-                        <tr {...headerGroup.getHeaderGroupProps()}>
-                            {headerGroup.headers.map(column => (
-                                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-                            ))}
-                        </tr>
-                    ))}
-                </thead>
-                <tbody {...getTableBodyProps()}>
-                    {rows.map((row, i) => {
-                        prepareRow(row)
-                        return (
-                            <tr {...row.getRowProps()}>
-                                {row.cells.map(cell => {
-                                    return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                                })}
+            <div style={{
+                width: '100%',
+                overflowX: 'scroll',
+                height: '400px',
+                overflowY: 'scroll'
+            }}>
+                <table {...getTableProps()}>
+                    <thead>
+                        {headerGroups.map(headerGroup => (
+                            <tr {...headerGroup.getHeaderGroupProps()}
+                                style={{
+                                    height: '20px'
+                                }}>
+                                {headerGroup.headers.map(column => (
+                                    <th
+                                        {...column.getHeaderProps()}
+                                        style={{
+                                            borderBottom: 'solid 3px white',
+                                            background: '#5c5c5c',
+                                            color: '#e3e3e3',
+                                            fontWeight: 'bold',
+                                        }}
+                                    >{column.render('Header')}</th>
+                                ))}
                             </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
+                        ))}
+                    </thead>
+                    <tbody {...getTableBodyProps()}>
+                        {rows.map((row, i) => {
+                            prepareRow(row)
+                            return (
+                                <tr {...row.getRowProps()}>
+                                    {row.cells.map(cell => {
+                                        return <td
+                                            {...cell.getCellProps()}
+                                        >{cell.render('Cell')}</td>
+                                    })}
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }
@@ -90,27 +114,26 @@ export function TableView() {
     // 'master' list of column headers - array of objects of type { Header, accessor }
     let table_columns: Column[] = []
 
-    // list of column headers to pass to sortable flyout to track order - array of strings
-    let sortable_columns: string[] = []
-
-
     let data: any[] = []
 
     const col_set = new Set()
 
-    table_columns.push({ Header: 'Student Name', accessor: 'student_name' })
-    sortable_columns.push('Student Name')
+    table_columns.push({ Header: 'Student Name', accessor: 'student_name', show: true })
     col_set.add('student_name')
 
     STUDENTS.forEach((key, value) => {
         let temp_std: Student
         temp_std = { student_name: key }
-
+        let idx = 0;
         value.forEach((v, k) => {
             temp_std[k] = v
             if (!col_set.has(k)) {
-                table_columns.push({ Header: k, accessor: k })
-                sortable_columns.push(k)
+                if (idx < 3) {
+                    table_columns.push({ Header: k, accessor: k, show: true })
+                } else {
+                    table_columns.push({ Header: k, accessor: k, show: false })
+                }
+                idx++
                 col_set.add(k)
             }
         })
@@ -119,7 +142,7 @@ export function TableView() {
 
     return (
         <div className="table-style">
-            <div className="table-row">
+            <div className="title-row">
                 <div className="text-container">
                     Customisable Table Headers
                     <div className="sub-text-container">
@@ -127,7 +150,7 @@ export function TableView() {
                     </div>
                 </div>
             </div>
-            <Table columns={table_columns} data={data} sortable_columns={sortable_columns} />
+            <Table columns={table_columns} data={data} />
         </div>
     );
 }
