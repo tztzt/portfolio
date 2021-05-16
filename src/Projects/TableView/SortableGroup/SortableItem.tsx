@@ -20,7 +20,6 @@ export function SortableItem(props: Props) {
   const style: any = {
     transform: CSS.Transform.toString(transform),
     transition,
-
   };
 
   const type: any = 'checkbox'

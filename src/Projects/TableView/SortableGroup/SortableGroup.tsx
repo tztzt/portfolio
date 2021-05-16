@@ -35,7 +35,6 @@ export default function SortableGroup(props: Props) {
         })
     );
 
-
     return (
         <div>
             <div style={{
@@ -47,7 +46,7 @@ export default function SortableGroup(props: Props) {
             </div>
             <div style={{
                 height: '200px',
-                overflow: 'auto',
+                overflowY: 'auto',
             }}>
                 <DndContext
                     modifiers={[restrictToVerticalAxis, restrictToParentElement]}
