@@ -47,7 +47,7 @@ export default function SortableGroup(props: Props) {
             </div>
             <div style={{
                 height: '200px',
-                overflowY: 'scroll',
+                overflow: 'auto',
             }}>
                 <DndContext
                     modifiers={[restrictToVerticalAxis, restrictToParentElement]}
@@ -58,6 +58,7 @@ export default function SortableGroup(props: Props) {
                     <SortableContext
                         items={columns}
                         strategy={verticalListSortingStrategy}
+                        
                     >
                         {columns.map(column => <SortableItem key={column.id} column={column} />)}
                     </SortableContext>

@@ -10,7 +10,8 @@ import { FiSettings } from 'react-icons/fi'
 export interface Column {
     Header: string,
     accessor: string,
-    show: boolean
+    show: boolean,
+    width?: number
 }
 
 interface Student {
@@ -44,8 +45,9 @@ function Table({ columns, data }: { columns: any, data: any }) {
         columns,
         data,
         initialState: {
-            // hiddenColumns: columns.filter((col: any) => { col.show === false }).map(    
-            //     (col: { Header: string, accessor: string, show: boolean }) => col.accessor)
+            hiddenColumns: columns.map((column: Column) => {
+                if (column.show === false) return column.accessor;
+            }),
         },
     })
 
@@ -70,24 +72,35 @@ function Table({ columns, data }: { columns: any, data: any }) {
             }}>
                 <table {...getTableProps()}>
                     <thead>
-                        {headerGroups.map(headerGroup => (
-                            <tr {...headerGroup.getHeaderGroupProps()}
-                                style={{
-                                    height: '20px'
-                                }}>
-                                {headerGroup.headers.map(column => (
-                                    <th
-                                        {...column.getHeaderProps()}
-                                        style={{
-                                            borderBottom: 'solid 3px white',
-                                            background: '#5c5c5c',
-                                            color: '#e3e3e3',
-                                            fontWeight: 'bold',
-                                        }}
-                                    >{column.render('Header')}</th>
-                                ))}
-                            </tr>
-                        ))}
+                        {
+                            headerGroups.map(headerGroup => (
+                                <tr {...headerGroup.getHeaderGroupProps({
+                                    style: { color: 'black' }
+                                })}>
+                                    {headerGroup.headers.map(column => (
+                                        <th {...column.getHeaderProps()}
+                                            style={{
+                                                borderBottom: 'solid 3px white',
+                                                padding: '0.5rem',
+                                                borderRight: '1px solid white',
+                                                background: '#5c5c5c',
+                                                color: '#e3e3e3',
+                                                fontWeight: 'bold',
+                                            }}
+                                        >
+                                            {column.width !== null ? <div style={{
+                                                width: column.width
+                                            }}>
+                                                {column.render('Header')}
+                                            </div> : <div>
+                                                {column.render('Header')}
+                                            </div>
+                                            }
+                                        </th>
+                                    ))}
+                                </tr>
+                            ))
+                        }
                     </thead>
                     <tbody {...getTableBodyProps()}>
                         {rows.map((row, i) => {
@@ -97,6 +110,11 @@ function Table({ columns, data }: { columns: any, data: any }) {
                                     {row.cells.map(cell => {
                                         return <td
                                             {...cell.getCellProps()}
+                                            style={{
+                                                padding: '0.5rem',
+                                                borderBottom: '1px solid white',
+                                                borderRight: '1px solid white'
+                                            }}
                                         >{cell.render('Cell')}</td>
                                     })}
                                 </tr>
@@ -105,7 +123,7 @@ function Table({ columns, data }: { columns: any, data: any }) {
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div >
     )
 }
 
@@ -118,7 +136,7 @@ export function TableView() {
 
     const col_set = new Set()
 
-    table_columns.push({ Header: 'Student Name', accessor: 'student_name', show: true })
+    table_columns.push({ Header: 'Student Name', accessor: 'student_name', show: true, width: 100 })
     col_set.add('student_name')
 
     STUDENTS.forEach((key, value) => {
@@ -128,10 +146,18 @@ export function TableView() {
         value.forEach((v, k) => {
             temp_std[k] = v
             if (!col_set.has(k)) {
-                if (idx < 3) {
-                    table_columns.push({ Header: k, accessor: k, show: true })
+                if (idx < 2) {
+                    if (k.length > 20) {
+                        table_columns.push({ Header: k, accessor: k, show: true, width: 150 })
+                    } else {
+                        table_columns.push({ Header: k, accessor: k, show: true })
+                    }
                 } else {
-                    table_columns.push({ Header: k, accessor: k, show: false })
+                    if (k.length > 20) {
+                        table_columns.push({ Header: k, accessor: k, show: false, width: 150 })
+                    } else {
+                        table_columns.push({ Header: k, accessor: k, show: false })
+                    }
                 }
                 idx++
                 col_set.add(k)

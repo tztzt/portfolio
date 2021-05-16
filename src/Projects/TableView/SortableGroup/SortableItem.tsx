@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form'
 import { BsFillGridFill } from "react-icons/bs";
 
 interface Props {
-  column: any
+  column: any,
 }
 
 export function SortableItem(props: Props) {
