@@ -36,7 +36,7 @@ export default function SortableGroup(props: Props) {
     );
 
     return (
-        <div>
+        <div>e
             <div style={{
                 padding: '0px 8px',
                 fontWeight: 'bold',

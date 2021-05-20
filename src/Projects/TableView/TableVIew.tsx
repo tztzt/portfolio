@@ -19,18 +19,18 @@ interface Student {
     [key: string]: any
 }
 
-const IndeterminateCheckbox = React.forwardRef(
-    ({ indeterminate, ...rest }: any, ref) => {
-        const defaultRef = React.useRef()
-        const resolvedRef: any = ref || defaultRef
+// const IndeterminateCheckbox = React.forwardRef(
+//     ({ indeterminate, ...rest }: any, ref) => {
+//         const defaultRef = React.useRef()
+//         const resolvedRef: any = ref || defaultRef
 
-        React.useEffect(() => {
-            resolvedRef.current.indeterminate = indeterminate
-        }, [resolvedRef, indeterminate])
+//         React.useEffect(() => {
+//             resolvedRef.current.indeterminate = indeterminate
+//         }, [resolvedRef, indeterminate])
 
-        return <input type="checkbox" ref={resolvedRef} {...rest} />
-    }
-)
+//         return <input type="checkbox" ref={resolvedRef} {...rest} />
+//     }
+// )
 
 function Table({ columns, data }: { columns: any, data: any }) {
     const {
